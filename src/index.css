@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0c1e4a;
+  --turquoise: #0891b2;
+  --turquoise-light: #06b6d4;
+  --olive: #4d7c0f;
+  --olive-light: #65a30d;
+  --orange: #ea580c;
+  --sky: #0284c7;
+  --yellow: #eab308;
+  --red: #dc2626;
+  --bg-gradient: linear-gradient(135deg, #0e7490 0%, #0891b2 28%, #15803d 72%, #3f6212 100%);
+  font-family: 'Noto Naskh Arabic', 'Cairo', Tahoma, system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 25%, #15803d 70%, #3f6212 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  direction: rtl;
+  text-align: right;
+  min-height: 100vh;
+}
+
+.font-naskh {
+  font-family: 'Noto Naskh Arabic', 'Cairo', serif;
+}
+
+/* Joyful text colors requested */
+.text-joy-orange {
+  color: #ea580c;
+}
+.text-joy-sky {
+  color: #0284c7;
+}
+.text-joy-yellow {
+  color: #ca8a04;
+}
+.text-joy-red {
+  color: #dc2626;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-10px);
+  }
+  40%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Print Stylesheet for Certificate */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #certificate-print-area,
+  #certificate-print-area * {
+    visibility: visible;
+  }
+  #certificate-print-area {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 2.5rem;
+    border-width: 12px !important;
+    background: white !important;
+    box-shadow: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 1cm;
+  }
+}
